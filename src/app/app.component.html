@@ -1,9 +1,19 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand">{{navHeading}}</a>
   <form class="form-inline">
-    <button class="btn btn-outline-success mr-sm-2" id="login">Login</button>
-    <select class="form-control my-2 my-sm-0" [(ngModel)] = "selectedOption" [ngModelOptions]="{standalone: true}">
-      <option value="{{city}}" *ngFor="let city of cityList">{{city}}</option>
-    </select>
+    <!-- <button class="btn btn-outline-success mr-sm-2" id="login">Login</button> -->
+    <div class="input-group mx-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Location</span>
+      </div>
+      <select class="form-control" [(ngModel)] = "selectedOption" [ngModelOptions]="{standalone: true}">
+          <option value="{{city}}" *ngFor="let city of cityList">{{city}}</option>
+        </select>
+    </div>
+    
   </form>
 </nav>
+
+<br><br><br><br>
+
+<app-login></app-login>
