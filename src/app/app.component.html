@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand">{{navHeading}}</a>
   <form class="form-inline">
-    <div class="input-group">
+    <div class="input-group" *ngIf="invalid">
       <div class="input-group-prepend">
         <span class="input-group-text">{{location}}</span>
       </div>
@@ -9,7 +9,7 @@
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            Location
         </button>
-        <div *ngIf="invalid" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#" *ngFor = "let city of cityList" (click) = "selectCity(city)">{{city}}</a>
         </div>
       </div>
