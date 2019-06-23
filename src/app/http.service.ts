@@ -8,12 +8,17 @@ import { Observable } from 'rxjs';
 export class HttpService {
 
   cityJSONUrl = '../assets/cityList.json';
+  registrationsUrl = '../assets/Registrations.json';
 
   constructor(private http: HttpClient) {
   }
 
-  getCitiesList(): Observable< object >{
+  getCitiesList(): Observable< object > {
     return this.http.get(this.cityJSONUrl);
+  }
+
+  getUsers(): Observable< object  >{
+    return this.http.get(this.registrationsUrl);
   }
 
 }

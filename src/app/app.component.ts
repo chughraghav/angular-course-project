@@ -10,14 +10,20 @@ export class AppComponent {
   title = 'MovieTicketBooking';
   navHeading = 'Movie Ticket Booking';
   cityList: Array<string>;
-  selectedCity: string;
+  location: string;
 
   constructor(private httpService: HttpService){
 
+    this.location = 'Select location';
+
     httpService.getCitiesList().subscribe((value) => {
-      this.cityList = value['cities'];
+      this.cityList = JSON.parse(JSON.stringify(value)).cities;
     }, (err) => {
       console.log(err);
     });
+  }
+
+  selectCity(city: string) {
+    this.location = city;
   }
 }

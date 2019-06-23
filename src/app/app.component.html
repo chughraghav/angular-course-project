@@ -1,19 +1,24 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand">{{navHeading}}</a>
   <form class="form-inline">
-    <!-- <button class="btn btn-outline-success mr-sm-2" id="login">Login</button> -->
-    <div class="input-group mx-3">
+    <div class="input-group">
       <div class="input-group-prepend">
-        <span class="input-group-text">Location</span>
+        <span class="input-group-text">{{location}}</span>
       </div>
-      <select class="form-control" [(ngModel)] = "selectedOption" [ngModelOptions]="{standalone: true}">
-          <option value="{{city}}" *ngFor="let city of cityList">{{city}}</option>
-        </select>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Location
+        </button>
+        <div *ngIf="invalid" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#" *ngFor = "let city of cityList" (click) = "selectCity(city)">{{city}}</a>
+        </div>
+      </div>
     </div>
+    
     
   </form>
 </nav>
 
 <br><br><br><br>
 
-<app-login></app-login>
+<router-outlet></router-outlet>
